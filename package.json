@@ -1,0 +1,30 @@
+{
+  "name": "kendo-grid-filter-sails-converter",
+  "version": "0.12.2",
+  "description": "Converter `kendo ui grid` filter to `sails.js` where query",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/werebeaver/kendo-grid-filter-sails-converter.git"
+  },
+  "keywords": [
+    "kendo",
+    "sailsjs",
+    "sails.js"
+  ],
+  "author": {
+    "name": "Aleksey Degtev",
+    "email": "a.degtev@my.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/werebeaver/kendo-grid-filter-sails-converter/issues"
+  },
+  "homepage": "https://github.com/werebeaver/kendo-grid-filter-sails-converter#readme",
+  "dist": {
+    "tarball": "http://registry.npmjs.org/kendo-grid-filter-sails-converter/-/kendo-grid-filter-sails-converter-0.12.1.tgz"
+  }
+}
