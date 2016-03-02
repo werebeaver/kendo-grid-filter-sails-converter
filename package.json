@@ -1,6 +1,6 @@
 {
   "name": "kendo-grid-filter-sails-converter",
-  "version": "0.12.2",
+  "version": "0.12.3",
   "description": "Converter `kendo ui grid` filter to `sails.js` where query",
   "main": "index.js",
   "scripts": {

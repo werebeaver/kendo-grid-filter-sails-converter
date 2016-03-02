@@ -5,12 +5,6 @@
  *
  **/
 
-/**
- *
- * Operators
- * @desc Available operators
- *
- **/
 var operators = {
     "eq": "",
     "gt": ">",
@@ -28,14 +22,13 @@ var operators = {
     "startswith": "startsWith"
 };
 
-/**
- *
- * KendoGridFilterConverter()
- * @desc Main entry point
- *
- **/
 function KendoGridFilterConverter() {
-
+    /**
+     *
+     * @param {Object} filter - kendo.data.DataSource.filter
+     * @return {Object} - filter compatible with sails.js
+     *
+     **/
     this.resolveFilter = function (filter) {
         if (!filter || !filter.logic || !filter.filters)
             throw 'The filter is not specified or an invalid format filter';
@@ -58,7 +51,7 @@ function KendoGridFilterConverter() {
                 where[logic].push(a);
 
             } else
-                where[logic].push(addSimpleCondition(filter.filters[i]));
+                where[logic].push(addCondition(filter.filters[i]));
         }
 
 
@@ -73,22 +66,15 @@ function KendoGridFilterConverter() {
         return where;
     };
 
-    function addSimpleCondition(filter) {
-        var item = translateFieldCondition(filter),
-            toInsert = {};
-
-        if (item.name == '')
-            toInsert[filter.field] = item.value;
-        else {
-            toInsert[filter.field] = {};
-            toInsert[filter.field][item.name] = item.value;
-        }
-
-        return toInsert;
-    }
-
-    function translateFieldCondition(filter) {
+    /**
+     *
+     * @param {Object} filter - kendo.data.DataSource.filter
+     * @return {Object} - `simple` filter's item
+     *
+     **/
+    function addCondition(filter) {
         var item = {},
+            toInsert = {},
             value = filter.value;
 
         item.name = operators[filter.operator];
@@ -106,8 +92,20 @@ function KendoGridFilterConverter() {
 
         item.value = value;
 
-        return item;
+        if (item.name == '')
+            toInsert[filter.field] = item.value;
+        else {
+            toInsert[filter.field] = {};
+            toInsert[filter.field][item.name] = item.value;
+        }
+
+        return toInsert;
     }
 }
 
+/**
+ *
+ * @export {KendoGridFilterConverter}
+ *
+ **/
 module.exports = KendoGridFilterConverter;
