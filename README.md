@@ -16,3 +16,5 @@ var f  = new Filtering();
 var filter = f.resolveFilter(sourceFilter); // sourceFilter - kendo.data.DataSource.filter
                                             // filter compatible with sails.js Model.find(filter)
 ```  
+## License: &nbsp;
+[MIT License](https://github.com/werebeaver/kendo-grid-filter-sails-converter/blob/master/LICENSE)  Copyright © 2016 Aleksey Degtev
